@@ -1,0 +1,18 @@
+# Node & temp files
+node_modules/
+.DS_Store
+*.pyc
+__pycache__/
+
+# Scratch scripts
+part1_text.txt
+find_commune.py
+fix_parser.py
+check_data.py
+parse_data.py
+parse_full_dataset.py
+generate_data_js.py
+
+# Large PDFs (> 50MB) to prevent GitHub push errors
+thu tuc hanh chinh moi/nghi dinh 101.pdf
+thu tuc hanh chinh moi/nghi dinh 102.pdf
