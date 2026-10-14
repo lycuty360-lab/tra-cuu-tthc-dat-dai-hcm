@@ -674,3 +674,284 @@ window.TTHC_DATA = {
     }
   ]
 };
+
+// Expanded portal data for all 4 fields & news articles
+window.PORTAL_DATA = {
+  activeField: "dat-dai",
+  fields: [
+    {
+      id: "dat-dai",
+      name: "Đất đai",
+      icon: "map-pin",
+      color: "blue",
+      description: "Tra cứu 46 thủ tục hành chính đất đai theo QĐ 5548/QĐ-UBND và Luật Đất đai 2024",
+      countText: "46 thủ tục"
+    },
+    {
+      id: "xay-dung",
+      name: "Xây dựng",
+      icon: "building-2",
+      color: "indigo",
+      description: "Thủ tục cấp phép xây dựng, thông báo khởi công, kiểm tra trật tự xây dựng",
+      countText: "6 thủ tục"
+    },
+    {
+      id: "moi-truong",
+      name: "Môi trường",
+      icon: "leaf",
+      color: "emerald",
+      description: "Đăng ký môi trường, thu gom rác thải, xử lý phản ánh ô nhiễm",
+      countText: "5 thủ tục"
+    },
+    {
+      id: "quy-hoach",
+      name: "Quy hoạch",
+      icon: "map",
+      color: "sky",
+      description: "Bản đồ quy hoạch sử dụng đất, chỉ giới đường đỏ, quy hoạch phân khu",
+      countText: "4 dịch vụ"
+    }
+  ],
+  news: [
+    {
+      id: 1,
+      title: "Đầu tư hạ tầng kiến tạo diện mạo mới cho xã Tân An Hội",
+      shortTitle: "Đầu tư hạ tầng kiến tạo diện mạo mới",
+      category: "TIN NỔI BẬT",
+      date: "13/10/2026",
+      thumb: "thumb_1.jpg",
+      heroImage: "hero_road.jpg",
+      summary: "Phòng Hạ tầng tiếp tục triển khai các dự án nâng cấp hệ thống giao thông, hạ tầng kỹ thuật, góp phần phát triển kinh tế - xã hội của địa phương.",
+      content: `Nhằm đáp ứng yêu cầu phát triển kinh tế - xã hội và nâng cao đời sống nhân dân, Phòng Hạ tầng xã Tân An Hội đã và đang tích cực đẩy nhanh tiến độ các công trình hạ tầng giao thông trọng điểm.
+
+Các tuyến đường liên ấp, đường ngõ xóm được nâng cấp, mở rộng và lắp đặt hệ thống chiếu sáng thông minh, trồng cây xanh tạo cảnh quan. Dự án đã nhận được sự đồng thuận cao từ người dân với hàng trăm hộ tự nguyện hiến đất làm đường.
+
+**Các chỉ tiêu đạt được trong quý:**
+- Nâng cấp, bê tông hóa 12,5 km đường giao thông nông thôn.
+- Hoàn thành lắp đặt 180 cột đèn năng lượng mặt trời.
+- Xây mới 2 cây cầu nông thôn đảm bảo xe cứu hỏa, xe tải nhẹ lưu thông thuận tiện.
+- Tỷ lệ người dân hài lòng về chất lượng hạ tầng đạt trên 98%.`
+    },
+    {
+      id: 2,
+      title: "Khảo sát, kiểm tra các công trình trên địa bàn xã Tân An Hội",
+      shortTitle: "Khảo sát, kiểm tra các công trình trên địa bàn",
+      category: "CÔNG TÁC THỰC ĐỊA",
+      date: "12/10/2026",
+      thumb: "thumb_2.jpg",
+      heroImage: "thumb_2.jpg",
+      summary: "Đoàn liên ngành Phòng Hạ tầng phối hợp cùng các đơn vị tư vấn giám sát kiểm tra định kỳ chất lượng thi công các gói thầu hạ tầng.",
+      content: `Ngày 12/10/2026, đoàn kiểm tra của Phòng Hạ tầng đã tiến hành khảo sát thực địa tại 5 công trình đang thi công trên địa bàn xã Tân An Hội.
+
+Nội dung kiểm tra tập trung vào:
+- Công tác an toàn lao động và bảo đảm vệ sinh môi trường khu vực thi công.
+- Tiến độ giải ngân vốn đầu tư công và chất lượng vật tư đầu vào.
+- Việc bố trí biển cảnh báo, rào chắn đảm bảo an toàn cho các phương tiện giao thông.
+
+Đoàn kiểm tra ghi nhận các đơn vị thi công chấp hành tốt quy chuẩn kỹ thuật và yêu cầu hoàn thành đúng tiến độ trước mùa mưa bão.`
+    },
+    {
+      id: 3,
+      title: "Công tác quy hoạch định hướng phát triển không gian xã Tân An Hội",
+      shortTitle: "Công tác quy hoạch định hướng phát triển",
+      category: "QUY HOẠCH ĐÔ THỊ",
+      date: "10/10/2026",
+      thumb: "thumb_3.jpg",
+      heroImage: "thumb_3.jpg",
+      summary: "Công bố lấy ý kiến cộng đồng dân cư về đồ án điều chỉnh quy hoạch chung xây dựng xã Tân An Hội đến năm 2030, tầm nhìn 2050.",
+      content: `Đồ án quy hoạch chung xây dựng xã Tân An Hội hướng tới mục tiêu phát triển bền vững, kết nối đồng bộ với mạng lưới giao thông của Thành phố và các khu đô thị vệ tinh lân cận.
+
+**Các phân vùng chức năng trọng điểm:**
+- Phân khu trung tâm hành chính, thương mại - dịch vụ tập trung.
+- Khu dân cư sinh thái nông thôn mới kết hợp nông nghiệp công nghệ cao.
+- Vành đai bảo vệ cảnh quan kênh rạch và hệ thống công viên cây xanh.
+
+Người dân có thể đến xem trực tiếp bản đồ quy hoạch tại Trụ sở UBND xã hoặc tra cứu trực tuyến trên Cổng thông tin của Phòng Hạ tầng.`
+    },
+    {
+      id: 4,
+      title: "Nâng cấp, cải tạo hệ thống giao thông xã Tân An Hội",
+      shortTitle: "Nâng cấp, cải tạo hệ thống giao thông",
+      category: "DỰ ÁN HẠ TẦNG",
+      date: "08/10/2026",
+      thumb: "thumb_4.jpg",
+      heroImage: "thumb_4.jpg",
+      summary: "Triển khai gói thầu thảm nhựa nóng và hệ thống thoát nước ngầm tại các trục đường chính của xã Tân An Hội.",
+      content: `Sáng ngày 08/10/2026, các đơn vị thi công đã huy động máy móc cơ giới, xe lu, máy xúc để thảm nhựa nóng mặt đường và đặt cống ly tâm thoát nước ngầm.
+
+Công trình nhằm khắc phục triệt để tình trạng ngập úng cục bộ trong mùa mưa, đồng thời kết nối giao thương giữa các xã lân cận, tạo điều kiện thuận lợi cho vận chuyển nông sản và phát triển tiểu thủ công nghiệp.`
+    },
+    {
+      id: 5,
+      title: "Bảo vệ môi trường vì cộng đồng xanh - sạch - đẹp",
+      shortTitle: "Bảo vệ môi trường vì cộng đồng xanh - sạch - đẹp",
+      category: "MÔI TRƯỜNG ĐÔ THỊ",
+      date: "05/10/2026",
+      thumb: "thumb_5.jpg",
+      heroImage: "thumb_5.jpg",
+      summary: "Phòng Hạ tầng phát động chiến dịch nạo vét kênh mương, thu gom rác thải nhựa và trồng tuyến đường hoa kiểu mẫu.",
+      content: `Hưởng ứng phong trào xây dựng nông thôn mới nâng cao, UBND xã và Phòng Hạ tầng đã phối hợp cùng các đoàn thể tổ chức 'Ngày Chủ nhật Xanh' với sự tham gia của hơn 500 đoàn viên, hội viên và nhân dân.
+
+Kết quả đã khơi thông dòng chảy hơn 4 km kênh mương thoát nước, dọn sạch 12 điểm tập kết rác tự phát, và trồng mới hơn 1.200 cây chuông vàng, hoa hoàng yến dọc theo các trục đường kiểu mẫu.`
+    }
+  ],
+  // Extra procedures for Construction, Environment, Planning
+  extraProcedures: {
+    "xay-dung": [
+      {
+        stt: 1,
+        code: "XD-01",
+        name: "Cấp giấy phép xây dựng mới đối với nhà ở riêng lẻ tại nông thôn",
+        level: "Cấp Xã",
+        tags: ["Cấp phép xây dựng"],
+        duration: "Không quá 15 ngày làm việc",
+        agency: "- Cơ quan có thẩm quyền: UBND cấp huyện / xã được phân cấp\n- Cơ quan tiếp nhận: Bộ phận Một cửa",
+        legal_basis: "Luật Xây dựng 2014; Luật Xây dựng sửa đổi 2020; Nghị định số 15/2021/NĐ-CP của Chính phủ."
+      },
+      {
+        stt: 2,
+        code: "XD-02",
+        name: "Cấp giấy phép sửa chữa, cải tạo công trình nhà ở riêng lẻ",
+        level: "Cấp Xã",
+        tags: ["Cải tạo / Sửa chữa"],
+        duration: "Không quá 10 ngày làm việc",
+        agency: "- Cơ quan có thẩm quyền: UBND cấp xã / huyện\n- Bộ phận chuyên môn: Phòng Hạ tầng",
+        legal_basis: "Luật Xây dựng số 50/2014/QH13 và Nghị định số 15/2021/NĐ-CP."
+      },
+      {
+        stt: 3,
+        code: "XD-03",
+        name: "Tiếp nhận thông báo khởi công xây dựng công trình",
+        level: "Cấp Xã",
+        tags: ["Thông báo khởi công"],
+        duration: "Trong vòng 01 ngày làm việc (tiếp nhận văn bản)",
+        agency: "- Cơ quan tiếp nhận: UBND xã Tân An Hội (Phòng Hạ tầng)",
+        legal_basis: "Điều 107 Luật Xây dựng 2014 được sửa đổi, bổ sung năm 2020."
+      },
+      {
+        stt: 4,
+        code: "XD-04",
+        name: "Xác nhận hiện trạng công trình xây dựng để cấp đổi Giấy chứng nhận",
+        level: "Cấp Xã",
+        tags: ["Hiện trạng xây dựng"],
+        duration: "Không quá 05 ngày làm việc",
+        agency: "- Cơ quan thực hiện: UBND xã Tân An Hội (Công chức Địa chính - Xây dựng)",
+        legal_basis: "Nghị định số 101/2024/NĐ-CP và Quyết định 44/2026/QĐ-UBND."
+      },
+      {
+        stt: 5,
+        code: "XD-05",
+        name: "Gia hạn, điều chỉnh giấy phép xây dựng nhà ở",
+        level: "Cấp Xã",
+        tags: ["Gia hạn giấy phép"],
+        duration: "Không quá 05 ngày làm việc",
+        agency: "- Cơ quan có thẩm quyền: UBND cấp xã / huyện\n- Cơ quan thụ lý: Phòng Hạ tầng",
+        legal_basis: "Nghị định số 15/2021/NĐ-CP của Chính phủ."
+      },
+      {
+        stt: 6,
+        code: "XD-06",
+        name: "Kiểm tra trật tự xây dựng và xử lý vi phạm chỉ giới xây dựng",
+        level: "Cấp Xã",
+        tags: ["Trật tự xây dựng"],
+        duration: "Kiểm tra thường xuyên hoặc giải quyết phản ánh trong 48 giờ",
+        agency: "- Đội kiểm tra trật tự xây dựng xã Tân An Hội phối hợp Thanh tra Sở Xây dựng",
+        legal_basis: "Nghị định số 16/2022/NĐ-CP về xử phạt vi phạm hành chính lĩnh vực xây dựng."
+      }
+    ],
+    "moi-truong": [
+      {
+        stt: 1,
+        code: "MT-01",
+        name: "Tiếp nhận đăng ký môi trường của các cơ sở sản xuất, kinh doanh, dịch vụ",
+        level: "Cấp Xã",
+        tags: ["Đăng ký môi trường"],
+        duration: "01 ngày làm việc (tiếp nhận bản đăng ký)",
+        agency: "- Cơ quan tiếp nhận: UBND xã Tân An Hội (Bộ phận Một cửa)",
+        legal_basis: "Điều 49 Luật Bảo vệ môi trường 2020; Nghị định số 08/2022/NĐ-CP."
+      },
+      {
+        stt: 2,
+        code: "MT-02",
+        name: "Đăng ký dịch vụ thu gom, vận chuyển rác thải sinh hoạt hộ gia đình",
+        level: "Cấp Xã",
+        tags: ["Rác thải sinh hoạt"],
+        duration: "Giải quyết trong 02 ngày làm việc",
+        agency: "- Đơn vị dịch vụ công ích môi trường phối hợp UBND xã",
+        legal_basis: "Quy chế quản lý chất thải rắn sinh hoạt TP. Hồ Chí Minh."
+      },
+      {
+        stt: 3,
+        code: "MT-03",
+        name: "Tiếp nhận và giải quyết phản ánh, khiếu nại về ô nhiễm môi trường, xả rác bừa bãi",
+        level: "Cấp Xã",
+        tags: ["Phản ánh ô nhiễm"],
+        duration: "Xử lý kiểm tra hiện trường trong 24 giờ",
+        agency: "- Tổ công tác Môi trường xã Tân An Hội",
+        legal_basis: "Luật Bảo vệ môi trường 2020; Nghị định 45/2022/NĐ-CP về xử phạt VPHC bảo vệ môi trường."
+      },
+      {
+        stt: 4,
+        code: "MT-04",
+        name: "Xác nhận cam kết bảo vệ môi trường đối với trang trại, hộ chăn nuôi tập trung",
+        level: "Cấp Xã",
+        tags: ["Môi trường chăn nuôi"],
+        duration: "Không quá 05 ngày làm việc",
+        agency: "- UBND xã Tân An Hội (Phòng Hạ tầng & Môi trường)",
+        legal_basis: "Luật Chăn nuôi 2018 và Luật Bảo vệ môi trường 2020."
+      },
+      {
+        stt: 5,
+        code: "MT-05",
+        name: "Cấp phát tài liệu, hướng dẫn phân loại chất thải rắn sinh hoạt tại nguồn",
+        level: "Cấp Xã",
+        tags: ["Phân loại rác"],
+        duration: "Thực hiện thường xuyên và hỗ trợ trực tuyến",
+        agency: "- Phòng Hạ tầng phối hợp Hội Phụ nữ và Đoàn Thanh niên xã",
+        legal_basis: "Khoản 1 Điều 75 Luật Bảo vệ môi trường 2020."
+      }
+    ],
+    "quy-hoach": [
+      {
+        stt: 1,
+        code: "QH-01",
+        name: "Tra cứu thông tin quy hoạch sử dụng đất xã Tân An Hội đến năm 2030",
+        level: "Cấp Xã",
+        tags: ["Quy hoạch sử dụng đất"],
+        duration: "Tra cứu tức thì trực tuyến hoặc trong 03 ngày bằng văn bản",
+        agency: "- Phòng Hạ tầng - Địa chính xã Tân An Hội",
+        legal_basis: "Luật Đất đai 2024; Quyết định phê duyệt điều chỉnh quy hoạch sử dụng đất TP.HCM."
+      },
+      {
+        stt: 2,
+        code: "QH-02",
+        name: "Cung cấp thông tin chỉ giới đường đỏ, hành lang an toàn giao thông và hạ tầng kỹ thuật",
+        level: "Cấp Xã",
+        tags: ["Chỉ giới đường đỏ"],
+        duration: "Không quá 05 ngày làm việc",
+        agency: "- Phòng Hạ tầng xã Tân An Hội phối hợp Phòng Quản lý Đô thị huyện",
+        legal_basis: "Luật Quy hoạch đô thị 2009; Luật Giao thông đường bộ."
+      },
+      {
+        stt: 3,
+        code: "QH-03",
+        name: "Trích lục bản đồ phân khu xây dựng và định hướng không gian nông thôn mới",
+        level: "Cấp Xã",
+        tags: ["Bản đồ phân khu"],
+        duration: "Không quá 03 ngày làm việc",
+        agency: "- UBND xã Tân An Hội (Bộ phận Tiếp nhận & Trả kết quả)",
+        legal_basis: "Luật Xây dựng 2014; Thông tư hướng dẫn quy hoạch xây dựng nông thôn."
+      },
+      {
+        stt: 4,
+        code: "QH-04",
+        name: "Lấy ý kiến cơ quan, tổ chức và cộng đồng dân cư về đồ án điều chỉnh quy hoạch",
+        level: "Cấp Xã",
+        tags: ["Lấy ý kiến nhân dân"],
+        duration: "Tối thiểu 30 ngày niêm yết công khai",
+        agency: "- UBND xã Tân An Hội chủ trì",
+        legal_basis: "Điều 20 và Điều 21 Luật Quy hoạch đô thị 2009."
+      }
+    ]
+  }
+};

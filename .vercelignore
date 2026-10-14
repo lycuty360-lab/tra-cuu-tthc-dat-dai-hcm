@@ -1,0 +1,8 @@
+# Vercel ignore
+*.pdf
+thu tuc hanh chinh moi/
+part1_text.txt
+*.py
+*.pyc
+__pycache__/
+.git

@@ -3,32 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cổng Tra cứu Thủ tục Hành chính Đất đai TP. Hồ Chí Minh</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+  <title>Ủy ban nhân dân Xã Tân An Hội - Phòng Hạ tầng</title>
+  <link rel="icon" href="emblem_round.png">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
           },
           colors: {
-            gov: {
-              50: '#f0f5fa',
-              100: '#e1ebf5',
-              600: '#1a56db',
-              700: '#1e429f',
-              800: '#1a365d',
-              900: '#0f2444',
-              red: '#c81e1e'
+            portal: {
+              headerFrom: '#003366',
+              headerMid: '#004c99',
+              headerTo: '#002244',
+              gold: '#ffcc00',
+              goldHover: '#e6b800',
+              blueActive: '#1d72b8'
             }
           }
         }
@@ -36,405 +35,481 @@
     }
   </script>
   <style>
+    /* Custom scrollbars */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    
     @media print {
-      body * {
-        visibility: hidden;
-      }
-      #modal-content, #modal-content * {
-        visibility: visible;
-      }
-      #modal-content {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        margin: 0;
-        padding: 20px;
-        box-shadow: none;
-      }
-      .no-print {
-        display: none !important;
-      }
+      body * { visibility: hidden; }
+      #printable-area, #printable-area * { visibility: visible; }
+      #printable-area { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 20px; }
+      .no-print { display: none !important; }
     }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+    
+    /* Smooth transitions */
+    .slide-fade-enter {
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans">
+<body class="bg-[#f0f4f9] text-slate-800 antialiased min-h-screen flex flex-col font-sans">
 
-  <!-- Quốc hiệu & Tiêu ngữ Topbar -->
-  <header class="bg-gov-900 text-white border-b-4 border-yellow-500 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-center md:text-left">
-        <div class="flex items-center justify-center md:justify-start gap-3">
-          <div class="w-12 h-12 rounded-full bg-red-700 border-2 border-yellow-400 flex items-center justify-center shadow-inner text-yellow-300 font-bold text-xl flex-shrink-0">
-            ★
-          </div>
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-300 font-semibold">Cộng hòa Xã hội Chủ nghĩa Việt Nam</div>
-            <h1 class="text-lg md:text-xl font-bold tracking-tight text-white uppercase">CỔNG TRA CỨU THỦ TỤC HÀNH CHÍNH LĨNH VỰC ĐẤT ĐAI</h1>
-            <div class="text-xs text-yellow-400 font-medium">ỦY BAN NHÂN DÂN THÀNH PHỐ HỒ CHÍ MINH • QUYẾT ĐỊNH 5548/QĐ-UBND</div>
-          </div>
+  <!-- ================= HEADER BANNER CHÍNH THỨC ================= -->
+  <header class="relative bg-gradient-to-r from-[#003875] via-[#004f9e] to-[#00224a] text-white overflow-hidden shadow-lg border-b-2 border-yellow-500/40">
+    <!-- Skyline & highway backdrop on the right -->
+    <div class="absolute inset-y-0 right-0 w-2/3 md:w-1/2 pointer-events-none opacity-30 mix-blend-screen bg-no-repeat bg-right bg-cover" style="background-image: url('header_skyline.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#003875] via-[#003875]/90 to-transparent pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-col lg:flex-row items-center justify-between gap-4">
+      
+      <!-- Left: Quốc huy + Tiêu đề cơ quan -->
+      <div class="flex items-center gap-3.5 text-center lg:text-left">
+        <div class="relative flex-shrink-0">
+          <img src="emblem_round.png" alt="Quốc huy Việt Nam" class="w-14 h-14 md:w-16 md:h-16 drop-shadow-md rounded-full object-cover">
         </div>
-        <div class="flex items-center justify-center gap-2 text-xs text-slate-300 bg-gov-800/60 px-3 py-2 rounded-lg border border-gov-700">
-          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
-          <span>Áp dụng Luật Đất đai 2024 & NQ 254/2025/QH15</span>
+        <div>
+          <div class="text-[11px] sm:text-xs font-bold tracking-widest text-slate-200 uppercase">
+            Ủy ban Nhân dân Xã Tân An Hội
+          </div>
+          <h1 class="text-xl sm:text-2xl lg:text-[26px] font-black tracking-wide text-yellow-400 uppercase drop-shadow-sm leading-tight">
+            PHÒNG HẠ TẦNG
+          </h1>
+          <div class="text-[10px] sm:text-[11px] font-medium tracking-wider text-blue-200 uppercase">
+            ĐỒNG HÀNH CÙNG NGƯỜI DÂN - KIẾN TẠO HẠ TẦNG - PHÁT TRIỂN BỀN VỮNG
+          </div>
         </div>
       </div>
+
+      <!-- Right: Search Box + Realtime Clock/Date -->
+      <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto justify-end">
+        
+        <!-- Live Search Input -->
+        <div class="relative w-full sm:w-72 md:w-80">
+          <input 
+            type="text" 
+            id="globalSearchInput" 
+            placeholder="Tìm kiếm thông tin..." 
+            class="w-full bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm pl-4 pr-10 py-2.5 rounded-full shadow-inner focus:outline-none focus:ring-2 focus:ring-yellow-400 border border-slate-200 transition"
+            autocomplete="off"
+          >
+          <button id="globalSearchBtn" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-500 hover:text-blue-700 transition">
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </button>
+
+          <!-- Autocomplete Dropdown -->
+          <div id="searchDropdown" class="hidden absolute left-0 right-0 top-full mt-2 bg-white rounded-xl shadow-2xl border border-slate-200 p-2 z-50 max-h-96 overflow-y-auto custom-scrollbar">
+            <!-- Results populated by JS -->
+          </div>
+        </div>
+
+        <!-- Date & Live Clock -->
+        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/15 text-xs text-white">
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-300"></i>
+            <span id="currentDateDisplay" class="font-medium">Thứ Hai, 13/10/2026</span>
+          </div>
+          <div class="h-3 w-px bg-white/30"></div>
+          <div class="flex items-center gap-1.5 font-mono font-bold text-yellow-300">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+            <span id="currentTimeDisplay">08:24:00</span>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </header>
 
-  <!-- Hero & Thanh tìm kiếm -->
-  <section class="bg-gradient-to-b from-gov-800 to-gov-900 text-white py-10 px-4 sm:px-6 lg:px-8 shadow-inner">
-    <div class="max-w-5xl mx-auto text-center">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-200 border border-blue-400/30 mb-4">
-        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-300"></i>
-        Hệ thống dữ liệu số hóa 46 thủ tục hành chính đất đai mới nhất
-      </span>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-3">
-        Tra cứu quy trình, hồ sơ & văn bản pháp luật đất đai
-      </h2>
-      <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8">
-        Hỗ trợ tra cứu nhanh 30 thủ tục cấp Tỉnh và 16 thủ tục cấp Xã thuộc thẩm quyền TP.HCM, quy định hồ sơ, thời hạn giải quyết và biểu mẫu áp dụng.
-      </p>
+  <!-- ================= KHUNG CHÍNH (SIDEBAR + HERO AREA) ================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex-1 w-full space-y-6">
 
-      <!-- Search Input Container -->
-      <div class="relative max-w-3xl mx-auto shadow-2xl rounded-2xl bg-white p-2 flex flex-col sm:flex-row items-center gap-2 border border-slate-200">
-        <div class="relative flex-1 w-full">
-          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-            <i data-lucide="search" class="w-5 h-5"></i>
+    <!-- Top Grid: Sidebar (Lĩnh vực) + Hero Slider -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+      
+      <!-- LEFT SIDEBAR: LĨNH VỰC -->
+      <aside class="lg:col-span-3 bg-white rounded-2xl p-4 shadow-sm border border-slate-200/80 flex flex-col justify-between">
+        <div class="space-y-3">
+          <!-- Sidebar Header -->
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2 font-bold text-slate-800 text-sm uppercase tracking-wide">
+              <i data-lucide="layers" class="w-4 h-4 text-blue-600"></i>
+              <span>LĨNH VỰC</span>
+            </div>
+            <button class="text-slate-400 hover:text-slate-600 p-1 rounded-md" title="Mở rộng / Thu gọn">
+              <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i>
+            </button>
           </div>
+
+          <!-- Navigation Menu Items -->
+          <nav class="space-y-2" id="fieldNavList">
+            <!-- 1. ĐẤT ĐAI (Active default) -->
+            <button 
+              data-field="dat-dai"
+              class="field-btn w-full p-3 rounded-xl flex items-center justify-between transition-all duration-200 text-left bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md shadow-blue-500/20"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-sm">Đất đai</div>
+                  <div class="text-[11px] opacity-80">46 thủ tục & văn bản</div>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-white/80"></i>
+            </button>
+
+            <!-- 2. XÂY DỰNG -->
+            <button 
+              data-field="xay-dung"
+              class="field-btn w-full p-3 rounded-xl flex items-center justify-between transition-all duration-200 text-left bg-slate-50 hover:bg-indigo-50/60 text-slate-700 hover:text-indigo-700 border border-slate-200/60"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="building-2" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-sm">Xây dựng</div>
+                  <div class="text-[11px] text-slate-500">Cấp phép & khởi công</div>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </button>
+
+            <!-- 3. MÔI TRƯỜNG -->
+            <button 
+              data-field="moi-truong"
+              class="field-btn w-full p-3 rounded-xl flex items-center justify-between transition-all duration-200 text-left bg-slate-50 hover:bg-emerald-50/60 text-slate-700 hover:text-emerald-700 border border-slate-200/60"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="leaf" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-sm">Môi trường</div>
+                  <div class="text-[11px] text-slate-500">Đăng ký & rác thải</div>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </button>
+
+            <!-- 4. QUY HOẠCH -->
+            <button 
+              data-field="quy-hoach"
+              class="field-btn w-full p-3 rounded-xl flex items-center justify-between transition-all duration-200 text-left bg-slate-50 hover:bg-sky-50/60 text-slate-700 hover:text-sky-700 border border-slate-200/60"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="map" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-sm">Quy hoạch</div>
+                  <div class="text-[11px] text-slate-500">Bản đồ & chỉ giới</div>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </button>
+          </nav>
+        </div>
+
+        <!-- Quick Hotline Card -->
+        <div class="mt-6 pt-4 border-t border-slate-100 bg-blue-50/50 p-3.5 rounded-xl border border-blue-100/60 text-xs text-slate-600 space-y-1.5">
+          <div class="flex items-center gap-1.5 font-bold text-blue-900">
+            <i data-lucide="phone-call" class="w-3.5 h-3.5 text-blue-600"></i>
+            <span>Đường dây nóng hỗ trợ:</span>
+          </div>
+          <div class="text-sm font-extrabold text-blue-700 font-mono">028.3892.4116</div>
+          <div class="text-[11px] text-slate-500">UBND Xã Tân An Hội, Huyện Củ Chi, TP. Hồ Chí Minh</div>
+        </div>
+      </aside>
+
+      <!-- RIGHT HERO SLIDER + CAROUSEL THUMBNAILS -->
+      <section class="lg:col-span-9 space-y-4">
+        
+        <!-- MAIN FEATURED BANNER SLIDER -->
+        <div class="relative bg-slate-900 rounded-2xl overflow-hidden shadow-md group min-h-[300px] sm:min-h-[350px] md:min-h-[380px] flex items-center">
+          
+          <!-- Slider Image Container -->
+          <div id="heroImageContainer" class="absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('hero_road.jpg');">
+            <!-- Gradient Overlay for readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/45 to-transparent"></div>
+          </div>
+
+          <!-- Hero Content Overlay -->
+          <div class="relative z-10 max-w-2xl p-6 sm:p-8 md:p-10 text-white space-y-3.5">
+            <div>
+              <span id="heroCategoryBadge" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white shadow-md">
+                TIN NỔI BẬT
+              </span>
+            </div>
+            
+            <h2 id="heroTitle" class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight leading-tight drop-shadow-md text-white">
+              ĐẦU TƯ HẠ TẦNG<br>
+              KIẾN TẠO DIỆN MẠO MỚI<br>
+              CHO XÃ TÂN AN HỘI
+            </h2>
+
+            <p id="heroSummary" class="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-xl drop-shadow line-clamp-3">
+              Phòng Hạ tầng tiếp tục triển khai các dự án nâng cấp hệ thống giao thông, hạ tầng kỹ thuật, góp phần phát triển kinh tế - xã hội của địa phương.
+            </p>
+
+            <div class="pt-2">
+              <button 
+                id="heroDetailBtn"
+                class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-blue-900/90 hover:bg-blue-800 text-white border border-blue-400/50 shadow-md transition flex items-center gap-2 group/btn"
+              >
+                <span>Xem chi tiết</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 group-hover/btn:translate-x-1 transition"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Previous / Next Slider Arrows -->
+          <button 
+            id="prevHeroBtn" 
+            class="absolute left-3.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-slate-800 flex items-center justify-center shadow-lg transition transform hover:scale-105"
+            title="Tin trước"
+          >
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <button 
+            id="nextHeroBtn" 
+            class="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-slate-800 flex items-center justify-center shadow-lg transition transform hover:scale-105"
+            title="Tin tiếp theo"
+          >
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+
+          <!-- Dots Pagination -->
+          <div class="absolute bottom-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5" id="heroDots">
+            <!-- 5 dots populated by JS -->
+          </div>
+
+        </div>
+
+        <!-- BOTTOM THUMBNAILS CAROUSEL (5 CARDS) -->
+        <div class="relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80">
+          <div class="flex items-center justify-between mb-2.5 px-1">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-700">
+              <i data-lucide="newspaper" class="w-4 h-4 text-blue-600"></i>
+              <span>Hoạt động & Dự án hạ tầng tiêu biểu</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button id="prevThumbBtn" class="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              </button>
+              <button id="nextThumbBtn" class="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cards Row (5 Thumbnails matching image) -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3" id="thumbCardsGrid">
+            <!-- Card 1 -->
+            <div onclick="selectArticle(0)" class="thumb-card cursor-pointer group rounded-xl p-1.5 bg-slate-50 hover:bg-blue-50/60 border border-slate-200/60 transition-all duration-200 flex flex-col justify-between">
+              <div class="overflow-hidden rounded-lg aspect-video mb-2 relative">
+                <img src="thumb_1.jpg" alt="Đầu tư hạ tầng" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-800 group-hover:text-blue-700 line-clamp-2 leading-snug">
+                Đầu tư hạ tầng kiến tạo diện mạo mới
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div onclick="selectArticle(1)" class="thumb-card cursor-pointer group rounded-xl p-1.5 bg-slate-50 hover:bg-blue-50/60 border border-slate-200/60 transition-all duration-200 flex flex-col justify-between">
+              <div class="overflow-hidden rounded-lg aspect-video mb-2 relative">
+                <img src="thumb_2.jpg" alt="Khảo sát công trình" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-800 group-hover:text-blue-700 line-clamp-2 leading-snug">
+                Khảo sát, kiểm tra các công trình trên địa bàn
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div onclick="selectArticle(2)" class="thumb-card cursor-pointer group rounded-xl p-1.5 bg-slate-50 hover:bg-blue-50/60 border border-slate-200/60 transition-all duration-200 flex flex-col justify-between">
+              <div class="overflow-hidden rounded-lg aspect-video mb-2 relative">
+                <img src="thumb_3.jpg" alt="Công tác quy hoạch" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-800 group-hover:text-blue-700 line-clamp-2 leading-snug">
+                Công tác quy hoạch định hướng phát triển
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div onclick="selectArticle(3)" class="thumb-card cursor-pointer group rounded-xl p-1.5 bg-slate-50 hover:bg-blue-50/60 border border-slate-200/60 transition-all duration-200 flex flex-col justify-between">
+              <div class="overflow-hidden rounded-lg aspect-video mb-2 relative">
+                <img src="thumb_4.jpg" alt="Cải tạo giao thông" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-800 group-hover:text-blue-700 line-clamp-2 leading-snug">
+                Nâng cấp, cải tạo hệ thống giao thông
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div onclick="selectArticle(4)" class="thumb-card cursor-pointer group rounded-xl p-1.5 bg-slate-50 hover:bg-blue-50/60 border border-slate-200/60 transition-all duration-200 flex flex-col justify-between">
+              <div class="overflow-hidden rounded-lg aspect-video mb-2 relative">
+                <img src="thumb_5.jpg" alt="Bảo vệ môi trường" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              </div>
+              <div class="text-[11px] sm:text-xs font-semibold text-slate-800 group-hover:text-blue-700 line-clamp-2 leading-snug">
+                Bảo vệ môi trường vì cộng đồng xanh - sạch - đẹp
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- ================= DỊCH VỤ CÔNG & THỦ TỤC HÀNH CHÍNH THEO LĨNH VỰC ================= -->
+    <section class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200/80 space-y-6" id="proceduresSection">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-slate-200 gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span id="activeFieldBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-700 uppercase">
+              LĨNH VỰC: ĐẤT ĐAI
+            </span>
+            <span class="text-xs text-slate-400">•</span>
+            <span class="text-xs font-medium text-slate-500" id="activeFieldSubtitle">Quyết định 5548/QĐ-UBND & Luật Đất đai 2024</span>
+          </div>
+          <h3 id="activeFieldTitle" class="text-lg sm:text-xl font-bold text-slate-900">
+            Danh mục Thủ tục Hành chính & Dịch vụ công
+          </h3>
+        </div>
+
+        <!-- Filter Sub-tabs -->
+        <div class="flex flex-wrap items-center gap-2" id="filterLevelRow">
+          <button class="level-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white shadow-sm" data-level="all">Tất cả</button>
+          <button class="level-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200" data-level="Cấp Xã">Cấp Xã (UBND)</button>
+          <button class="level-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200" data-level="Cấp Tỉnh">Cấp Tỉnh (Sở/VPĐK)</button>
+          <button id="viewLegalDocsBtn" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 flex items-center gap-1.5">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+            <span>Văn bản pháp luật</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tag Filters Row -->
+      <div class="flex flex-wrap items-center gap-1.5 pb-2 border-b border-slate-100 overflow-x-auto no-scrollbar" id="tagFiltersRow">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Procedures Search Bar within Tab -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200/80">
+        <div class="relative w-full sm:w-96">
           <input 
             type="text" 
-            id="searchInput" 
-            placeholder="Nhập tên thủ tục, mã TTHC (VD: cấp sổ, tách thửa, 1.115910, chuyển mục đích...)" 
-            class="w-full pl-11 pr-4 py-3 text-slate-900 placeholder-slate-400 text-sm md:text-base rounded-xl focus:outline-none focus:ring-2 focus:ring-gov-600 border-0"
-            autocomplete="off"
+            id="procedureFilterInput" 
+            placeholder="Lọc nhanh thủ tục theo tên, mã TTHC, từ khóa..." 
+            class="w-full bg-white text-xs sm:text-sm pl-9 pr-4 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-          <button id="clearSearchBtn" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600">
-            <i data-lucide="x-circle" class="w-5 h-5"></i>
-          </button>
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
         </div>
-        <button id="searchBtn" class="w-full sm:w-auto px-6 py-3 bg-gov-600 hover:bg-gov-700 text-white font-semibold text-sm rounded-xl transition flex items-center justify-center gap-2 shadow-md">
-          <i data-lucide="filter" class="w-4 h-4"></i>
-          <span>Tìm kiếm</span>
-        </button>
-      </div>
-
-      <!-- Quick Stats -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mt-8 pt-6 border-t border-slate-700/60 text-left">
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10">
-          <div class="text-xs text-slate-300">Tổng thủ tục</div>
-          <div class="text-xl sm:text-2xl font-bold text-yellow-400" id="statTotal">46</div>
-          <div class="text-[11px] text-slate-400">Thủ tục hành chính</div>
-        </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10">
-          <div class="text-xs text-slate-300">Cấp Tỉnh</div>
-          <div class="text-xl sm:text-2xl font-bold text-sky-400" id="statProvince">30</div>
-          <div class="text-[11px] text-slate-400">Sở & VP ĐKĐĐ</div>
-        </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10">
-          <div class="text-xs text-slate-300">Cấp Xã</div>
-          <div class="text-xl sm:text-2xl font-bold text-emerald-400" id="statCommune">16</div>
-          <div class="text-[11px] text-slate-400">UBND cấp xã / phường</div>
-        </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10">
-          <div class="text-xs text-slate-300">Văn bản pháp quy</div>
-          <div class="text-xl sm:text-2xl font-bold text-amber-400" id="statDocs">10</div>
-          <div class="text-[11px] text-slate-400">Luật & Nghị định</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Navigation Tabs -->
-  <div class="sticky top-0 z-20 bg-white border-b border-slate-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between overflow-x-auto no-scrollbar gap-4 py-2">
-        <div class="flex items-center gap-2">
-          <button 
-            data-tab="tthc" 
-            class="tab-btn px-4 py-2.5 rounded-lg text-sm font-semibold transition flex items-center gap-2 bg-gov-50 text-gov-700 border border-gov-100"
-          >
-            <i data-lucide="layers" class="w-4 h-4"></i>
-            <span>Thủ tục hành chính</span>
-            <span class="px-2 py-0.5 text-xs rounded-full bg-gov-600 text-white font-bold" id="badgeTthcCount">46</span>
-          </button>
-          <button 
-            data-tab="docs" 
-            class="tab-btn px-4 py-2.5 rounded-lg text-sm font-semibold transition flex items-center gap-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-          >
-            <i data-lucide="book-open" class="w-4 h-4"></i>
-            <span>Thư viện Văn bản pháp luật</span>
-            <span class="px-2 py-0.5 text-xs rounded-full bg-slate-200 text-slate-700 font-bold">10</span>
-          </button>
-          <button 
-            data-tab="guides" 
-            class="tab-btn px-4 py-2.5 rounded-lg text-sm font-semibold transition flex items-center gap-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-          >
-            <i data-lucide="help-circle" class="w-4 h-4"></i>
-            <span>Tình huống & Hướng dẫn</span>
-          </button>
-        </div>
-
-        <!-- View mode toggle (Cards vs Table) -->
-        <div class="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200" id="viewModeContainer">
-          <button id="viewCardBtn" class="p-1.5 rounded-md bg-white shadow-sm text-gov-700 font-medium text-xs flex items-center gap-1" title="Dạng thẻ (Card)">
-            <i data-lucide="layout-grid" class="w-4 h-4"></i>
-            <span>Thẻ</span>
-          </button>
-          <button id="viewTableBtn" class="p-1.5 rounded-md text-slate-600 hover:text-slate-900 text-xs flex items-center gap-1" title="Dạng danh sách bảng">
-            <i data-lucide="list" class="w-4 h-4"></i>
-            <span>Bảng</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Content Container -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
-
-    <!-- ================= TAB 1: THỦ TỤC HÀNH CHÍNH ================= -->
-    <div id="tabContent-tthc" class="tab-content space-y-6">
-
-      <!-- Filters Row -->
-      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <!-- Level Filters -->
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mr-1">Cấp quản lý:</span>
-          <button class="level-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-gov-600 text-white shadow-sm" data-level="all">Tất cả (46)</button>
-          <button class="level-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200" data-level="Cấp Tỉnh">Cấp Tỉnh (30)</button>
-          <button class="level-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200" data-level="Cấp Xã">Cấp Xã (16)</button>
-        </div>
-
-        <!-- Tag Filters -->
-        <div class="flex flex-wrap items-center gap-1.5 overflow-x-auto no-scrollbar">
-          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mr-1">Chủ đề:</span>
-          <button class="tag-btn px-2.5 py-1 rounded-md text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 font-medium active-tag" data-tag="all">Tất cả</button>
-          <button class="tag-btn px-2.5 py-1 rounded-md text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 font-medium" data-tag="Cấp GCN / Đăng ký">Sổ đỏ / Đăng ký</button>
-          <button class="tag-btn px-2.5 py-1 rounded-md text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 font-medium" data-tag="Giao đất / Cho thuê đất">Giao đất / Thuê đất</button>
-          <button class="tag-btn px-2.5 py-1 rounded-md text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 font-medium" data-tag="Chuyển mục đích">Chuyển mục đích</button>
-          <button class="tag-btn px-2.5 py-1 rounded-md text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 font-medium" data-tag="Tách thửa / Hợp thửa">Tách / Hợp thửa</button>
-          <button class="tag-btn px-2.5 py-1 rounded-md text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 font-medium" data-tag="Đăng ký biến động">Biến động đất đai</button>
+        <div class="text-xs text-slate-500 flex items-center gap-1">
+          <span>Tìm thấy</span>
+          <span id="procedureCountDisplay" class="font-bold text-blue-700">46</span>
+          <span>thủ tục hành chính</span>
         </div>
       </div>
 
-      <!-- Result Count Info -->
-      <div class="flex items-center justify-between text-xs text-slate-500 px-1">
-        <div>Đang hiển thị <span id="filteredCount" class="font-bold text-slate-800">46</span> thủ tục</div>
-        <div id="searchNotice" class="hidden text-gov-600 font-medium">Kết quả tìm kiếm phù hợp</div>
-      </div>
-
-      <!-- Card View Container -->
-      <div id="cardView" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Card Grid for Procedures -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="procedureCardsGrid">
         <!-- Rendered by JS -->
       </div>
 
-      <!-- Table View Container -->
-      <div id="tableView" class="hidden bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs sm:text-sm">
-            <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase text-[11px]">
-              <tr>
-                <th class="py-3 px-4 w-12 text-center">STT</th>
-                <th class="py-3 px-4 w-28">Mã TTHC</th>
-                <th class="py-3 px-4">Tên thủ tục hành chính</th>
-                <th class="py-3 px-4 w-24">Cấp</th>
-                <th class="py-3 px-4 w-44">Thời hạn</th>
-                <th class="py-3 px-4 w-28 text-center">Thao tác</th>
-              </tr>
-            </thead>
-            <tbody id="tableBody" class="divide-y divide-slate-100 text-slate-700">
-              <!-- Rendered by JS -->
-            </tbody>
-          </table>
-        </div>
+      <!-- Empty State for Procedures -->
+      <div id="noProcedureState" class="hidden text-center py-12 bg-slate-50 rounded-xl border border-slate-200 p-6">
+        <i data-lucide="search-x" class="w-10 h-10 text-slate-400 mx-auto mb-2"></i>
+        <div class="text-sm font-semibold text-slate-700">Không tìm thấy thủ tục phù hợp</div>
+        <div class="text-xs text-slate-500 mt-1">Vui lòng thử lại với từ khóa khác hoặc xóa bộ lọc</div>
       </div>
 
-      <!-- Empty State -->
-      <div id="emptyState" class="hidden text-center py-16 bg-white rounded-xl border border-slate-200 p-8">
-        <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400 mb-4">
-          <i data-lucide="search-x" class="w-8 h-8"></i>
-        </div>
-        <h3 class="text-base font-semibold text-slate-800 mb-1">Không tìm thấy thủ tục phù hợp</h3>
-        <p class="text-slate-500 text-xs sm:text-sm max-w-sm mx-auto mb-4">
-          Vui lòng thử lại với từ khóa khác như "cấp sổ", "giao đất", "tách thửa", hoặc xóa bộ lọc.
-        </p>
-        <button id="resetFilterBtn" class="px-4 py-2 bg-gov-600 text-white rounded-lg text-xs font-semibold hover:bg-gov-700 transition">
-          Xóa toàn bộ bộ lọc
-        </button>
-      </div>
-
-    </div>
-
-    <!-- ================= TAB 2: THƯ VIỆN VĂN BẢN PHÁP LUẬT ================= -->
-    <div id="tabContent-docs" class="tab-content hidden space-y-6">
-      <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3 text-blue-900 text-sm">
-        <i data-lucide="info" class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"></i>
-        <div>
-          <span class="font-bold">Hệ thống văn bản pháp luật nền tảng:</span>
-          Toàn bộ các quyết định, luật và nghị định mới nhất thi hành Luật Đất đai 2024 tại TP. Hồ Chí Minh, bao gồm Quyết định số 5548/QĐ-UBND, Nghị định 101, 102, 103, 88, 123 và Nghị quyết 254/2025/QH15.
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="docsGrid">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-
-    <!-- ================= TAB 3: HƯỚNG DẪN & TÌNH HUỐNG PHỔ BIẾN ================= -->
-    <div id="tabContent-guides" class="tab-content hidden space-y-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Tình huống 1 -->
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition">
-          <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold mb-3">
-            <i data-lucide="file-badge" class="w-5 h-5"></i>
-          </div>
-          <h3 class="font-bold text-slate-800 text-base mb-2">Cấp Giấy chứng nhận (Sổ đỏ) lần đầu</h3>
-          <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-            Áp dụng cho hộ gia đình, cá nhân đang sử dụng đất ổn định, có hoặc không có giấy tờ theo Điều 137 Luật Đất đai 2024 và Điều 24 Nghị định 101/2024/NĐ-CP.
-          </p>
-          <div class="text-xs bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1 mb-4 text-slate-700">
-            <div>• <strong>Cơ quan tiếp nhận:</strong> UBND cấp xã hoặc Chi nhánh VP Đăng ký đất đai</div>
-            <div>• <strong>Thời hạn:</strong> Không quá 30 ngày làm việc</div>
-            <div>• <strong>Hồ sơ:</strong> Đơn đăng ký (Mẫu số 04/ĐK), Giấy tờ về quyền sử dụng đất (nếu có), trích lục đo đạc.</div>
-          </div>
-          <button onclick="filterBySearch('lần đầu')" class="w-full py-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-lg text-xs font-semibold transition">
-            Xem các thủ tục cấp lần đầu →
-          </button>
-        </div>
-
-        <!-- Tình huống 2 -->
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition">
-          <div class="w-10 h-10 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center font-bold mb-3">
-            <i data-lucide="scissors" class="w-5 h-5"></i>
-          </div>
-          <h3 class="font-bold text-slate-800 text-base mb-2">Tách thửa đất, Hợp thửa đất</h3>
-          <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-            Quy định điều kiện tách thửa (diện tích tối thiểu, bề rộng mặt tiền, lối đi chung) theo Quyết định UBND TP.HCM và Điều 220 Luật Đất đai 2024.
-          </p>
-          <div class="text-xs bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1 mb-4 text-slate-700">
-            <div>• <strong>Cơ quan thụ lý:</strong> Chi nhánh Văn phòng Đăng ký đất đai</div>
-            <div>• <strong>Thời hạn:</strong> Không quá 15 ngày làm việc</div>
-            <div>• <strong>Hồ sơ:</strong> Đơn xin tách/hợp thửa, Bản gốc Giấy chứng nhận đã cấp, Bản vẽ sơ đồ phân chia thửa đất.</div>
-          </div>
-          <button onclick="filterBySearch('tách thửa')" class="w-full py-2 bg-sky-50 text-sky-700 hover:bg-sky-100 rounded-lg text-xs font-semibold transition">
-            Xem thủ tục tách thửa →
-          </button>
-        </div>
-
-        <!-- Tình huống 3 -->
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition">
-          <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold mb-3">
-            <i data-lucide="repeat" class="w-5 h-5"></i>
-          </div>
-          <h3 class="font-bold text-slate-800 text-base mb-2">Đăng ký biến động (Mua bán, Tặng cho, Thừa kế)</h3>
-          <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-            Chuyển quyền sử dụng đất khi chuyển nhượng, tặng cho, thừa kế tài sản gắn liền với đất theo Điều 133 Luật Đất đai 2024.
-          </p>
-          <div class="text-xs bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1 mb-4 text-slate-700">
-            <div>• <strong>Cơ quan thực hiện:</strong> Văn phòng Đăng ký đất đai / Chi nhánh</div>
-            <div>• <strong>Thời hạn:</strong> Không quá 10 ngày làm việc</div>
-            <div>• <strong>Hồ sơ:</strong> Đơn đăng ký biến động, Hợp đồng công chứng, Giấy chứng nhận bản gốc, tờ khai thuế/lệ phí trước bạ.</div>
-          </div>
-          <button onclick="filterBySearch('biến động')" class="w-full py-2 bg-amber-50 text-amber-700 hover:bg-amber-100 rounded-lg text-xs font-semibold transition">
-            Xem thủ tục biến động đất đai →
-          </button>
-        </div>
-      </div>
-    </div>
+    </section>
 
   </main>
 
-  <!-- ================= MODAL CHI TIẾT THỦ TỤC ================= -->
-  <div id="detailModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 sm:p-6 flex items-center justify-center">
-    <div class="bg-white rounded-2xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden transform transition-all my-8 flex flex-col max-h-[90vh]" id="modal-content">
+  <!-- ================= MODAL XEM CHI TIẾT THỦ TỤC ================= -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 flex items-center justify-center">
+    <div class="bg-white rounded-2xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden my-8 flex flex-col max-h-[90vh]" id="printable-area">
       
       <!-- Modal Header -->
-      <div class="bg-gov-900 text-white p-5 flex items-start justify-between gap-4 border-b border-gov-700">
+      <div class="bg-[#003875] text-white p-5 flex items-start justify-between gap-4 border-b border-blue-900">
         <div>
-          <div class="flex items-center gap-2 mb-1.5 flex-wrap">
-            <span id="modalLevelBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-gov-600 text-white">Cấp Tỉnh</span>
-            <span id="modalCodeBadge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/20 text-yellow-300">Mã: 1.115910</span>
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span id="modalLevelBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-500 text-white">Cấp Xã</span>
+            <span id="modalCodeBadge" class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-white/20 text-yellow-300">Mã: 1.115936</span>
           </div>
           <h3 id="modalTitle" class="text-base sm:text-lg font-bold leading-snug">Tên thủ tục hành chính</h3>
         </div>
-        <button id="closeModalBtn" class="no-print p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-gov-800 transition">
+        <button id="closeModalBtn" class="no-print p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-blue-800 transition">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <!-- Modal Body (Scrollable) -->
+      <!-- Modal Body -->
       <div class="p-6 overflow-y-auto custom-scrollbar space-y-6 text-sm text-slate-700">
-
-        <!-- Info Badges Grid -->
+        
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
           <div>
             <span class="text-slate-500 block mb-0.5 font-medium">Thời hạn giải quyết:</span>
             <span id="modalDuration" class="font-bold text-slate-900 text-sm">15 ngày làm việc</span>
           </div>
           <div>
-            <span class="text-slate-500 block mb-0.5 font-medium">Cơ quan có thẩm quyền / Thực hiện:</span>
-            <span id="modalAgency" class="font-semibold text-slate-900">Văn phòng Đăng ký đất đai</span>
+            <span class="text-slate-500 block mb-0.5 font-medium">Cơ quan thực hiện:</span>
+            <span id="modalAgency" class="font-semibold text-slate-900">UBND Xã Tân An Hội</span>
           </div>
         </div>
 
-        <!-- Section: Trình tự thực hiện tóm lược -->
         <div>
-          <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide flex items-center gap-2 mb-2 pb-1 border-b border-slate-200 text-gov-700">
-            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
-            Trình tự thực hiện quy chuẩn
+          <h4 class="font-bold text-slate-900 text-xs sm:text-sm uppercase tracking-wide flex items-center gap-2 mb-2 pb-1 border-b border-slate-200 text-blue-800">
+            <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+            Trình tự thực hiện
           </h4>
-          <ol class="list-decimal pl-5 space-y-2 text-slate-600 leading-relaxed text-xs sm:text-sm">
-            <li><strong>Bước 1 - Nộp hồ sơ:</strong> Cá nhân/Tổ chức nộp hồ sơ tại Bộ phận Tiếp nhận và Trả kết quả (Bộ phận Một cửa) hoặc qua Cổng Dịch vụ công trực tuyến.</li>
-            <li><strong>Bước 2 - Tiếp nhận & Thẩm tra:</strong> Cơ quan chuyên môn kiểm tra tính hợp lệ của hồ sơ. Nếu đầy đủ, cấp Giấy tiếp nhận hồ sơ và hẹn trả kết quả.</li>
-            <li><strong>Bước 3 - Giải quyết hồ sơ:</strong> Kiểm tra thực địa, trích lục bản đồ, gửi thông báo nghĩa vụ tài chính thuế/phí (nếu có).</li>
-            <li><strong>Bước 4 - Trả kết quả:</strong> Người sử dụng đất nhận Giấy chứng nhận / Quyết định hành chính sau khi hoàn thành nghĩa vụ tài chính.</li>
+          <ol class="list-decimal pl-5 space-y-2 text-slate-600 text-xs sm:text-sm leading-relaxed">
+            <li><strong>Bước 1 - Nộp hồ sơ:</strong> Cá nhân, tổ chức nộp hồ sơ tại Bộ phận Một cửa UBND xã Tân An Hội hoặc Cổng Dịch vụ công trực tuyến.</li>
+            <li><strong>Bước 2 - Kiểm tra hồ sơ:</strong> Cán bộ chuyên môn kiểm tra tính hợp lệ và cấp Giấy tiếp nhận hồ sơ & hẹn trả kết quả.</li>
+            <li><strong>Bước 3 - Thẩm tra thực địa & xác minh:</strong> Thực hiện niêm yết công khai (đối với thủ tục đất đai) hoặc kiểm tra hiện trường kỹ thuật.</li>
+            <li><strong>Bước 4 - Trả kết quả:</strong> Trả kết quả theo giấy hẹn sau khi người nộp hoàn thành nghĩa vụ tài chính theo quy định.</li>
           </ol>
         </div>
 
-        <!-- Section: Căn cứ pháp lý -->
         <div>
-          <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide flex items-center gap-2 mb-2 pb-1 border-b border-slate-200 text-gov-700">
-            <i data-lucide="file-text" class="w-4 h-4"></i>
-            Căn cứ pháp lý áp dụng
+          <h4 class="font-bold text-slate-900 text-xs sm:text-sm uppercase tracking-wide flex items-center gap-2 mb-2 pb-1 border-b border-slate-200 text-blue-800">
+            <i data-lucide="scale" class="w-4 h-4"></i>
+            Căn cứ pháp lý
           </h4>
-          <div id="modalLegal" class="bg-amber-50/60 border border-amber-200/80 rounded-xl p-3.5 text-xs text-slate-800 space-y-1.5 leading-relaxed whitespace-pre-line">
-            <!-- Rendered by JS -->
-          </div>
+          <div id="modalLegal" class="bg-amber-50/70 border border-amber-200 rounded-xl p-3.5 text-xs text-slate-800 whitespace-pre-line leading-relaxed"></div>
         </div>
 
-        <!-- Section: Cơ quan giải quyết chi tiết -->
         <div>
-          <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide flex items-center gap-2 mb-2 pb-1 border-b border-slate-200 text-gov-700">
-            <i data-lucide="building-2" class="w-4 h-4"></i>
+          <h4 class="font-bold text-slate-900 text-xs sm:text-sm uppercase tracking-wide flex items-center gap-2 mb-2 pb-1 border-b border-slate-200 text-blue-800">
+            <i data-lucide="building" class="w-4 h-4"></i>
             Cơ quan có thẩm quyền & Phối hợp
           </h4>
-          <div id="modalAgencyDetail" class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs text-slate-700 whitespace-pre-line leading-relaxed">
-            <!-- Rendered by JS -->
-          </div>
+          <div id="modalAgencyDetail" class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs text-slate-700 whitespace-pre-line leading-relaxed"></div>
         </div>
 
       </div>
 
       <!-- Modal Footer -->
       <div class="no-print bg-slate-50 border-t border-slate-200 p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div class="text-xs text-slate-500">
-          Nguồn trích xuất: Quyết định 5548/QĐ-UBND TP.HCM
-        </div>
+        <div class="text-xs text-slate-500">Phòng Hạ tầng • UBND Xã Tân An Hội</div>
         <div class="flex items-center gap-2 w-full sm:w-auto">
-          <button id="copyBtn" class="flex-1 sm:flex-initial px-4 py-2 border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 transition flex items-center justify-center gap-1.5">
+          <button id="copyDetailBtn" class="flex-1 sm:flex-initial px-4 py-2 border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 transition flex items-center justify-center gap-1.5">
             <i data-lucide="copy" class="w-4 h-4"></i>
             <span>Sao chép</span>
           </button>
-          <button id="printBtn" class="flex-1 sm:flex-initial px-4 py-2 bg-gov-600 hover:bg-gov-700 text-white rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5 shadow-sm">
+          <button id="printDetailBtn" class="flex-1 sm:flex-initial px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5 shadow-sm">
             <i data-lucide="printer" class="w-4 h-4"></i>
             <span>In phiếu hướng dẫn</span>
           </button>
@@ -444,22 +519,90 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-      <div>
-        <div class="font-bold text-slate-200 text-sm mb-1 uppercase">Cổng Tra cứu Thủ tục Hành chính Đất đai TP. Hồ Chí Minh</div>
-        <p class="text-slate-400">Dữ liệu chuẩn hóa theo Quyết định số 5548/QĐ-UBND & Hệ thống Luật Đất đai 2024</p>
+  <!-- ================= MODAL XEM BÀI VIẾT TIN TỨC / DỰ ÁN ================= -->
+  <div id="articleModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 flex items-center justify-center">
+    <div class="bg-white rounded-2xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden my-8 flex flex-col max-h-[90vh]">
+      
+      <!-- Article Header -->
+      <div class="relative h-56 sm:h-64 bg-slate-900">
+        <img id="articleModalImage" src="hero_road.jpg" alt="Article image" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent"></div>
+        
+        <button id="closeArticleModalBtn" class="absolute top-4 right-4 p-2 rounded-full bg-slate-900/70 text-white hover:bg-slate-900 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <div class="absolute bottom-4 left-6 right-6 text-white space-y-1.5">
+          <span id="articleModalCategory" class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-blue-600 text-white">
+            TIN NỔI BẬT
+          </span>
+          <h3 id="articleModalTitle" class="text-lg sm:text-xl md:text-2xl font-black leading-tight">
+            Tiêu đề bài viết
+          </h3>
+          <div class="text-xs text-slate-300 flex items-center gap-2">
+            <span id="articleModalDate">13/10/2026</span>
+            <span>•</span>
+            <span>Phòng Hạ tầng Xã Tân An Hội</span>
+          </div>
+        </div>
       </div>
-      <div class="flex items-center gap-4 text-slate-400">
-        <span>Sẵn sàng triển khai trên Vercel</span>
-        <span>•</span>
-        <a href="https://dichvucong.gov.vn" target="_blank" class="hover:text-white transition underline">Cổng Dịch vụ công Quốc gia</a>
+
+      <!-- Article Body -->
+      <div class="p-6 overflow-y-auto custom-scrollbar space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+        <div id="articleModalSummary" class="font-semibold text-slate-900 text-sm sm:text-base border-l-4 border-blue-600 pl-3 py-1 bg-blue-50/50 rounded-r-lg">
+          Tóm tắt bài viết
+        </div>
+        <div id="articleModalContent" class="space-y-3 whitespace-pre-line text-slate-700">
+          Nội dung chi tiết
+        </div>
+      </div>
+
+      <div class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
+        <div class="text-xs text-slate-500">Cổng thông tin điện tử UBND Xã Tân An Hội</div>
+        <button onclick="document.getElementById('articleModal').classList.add('hidden')" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs font-semibold transition">
+          Đóng lại
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= MODAL THƯ VIỆN VĂN BẢN PHÁP LUẬT ================= -->
+  <div id="legalDocsModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 flex items-center justify-center">
+    <div class="bg-white rounded-2xl max-w-4xl w-full shadow-2xl border border-slate-200 overflow-hidden my-8 flex flex-col max-h-[90vh]">
+      <div class="bg-[#003875] text-white p-5 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i data-lucide="book-open" class="w-5 h-5 text-yellow-400"></i>
+          <h3 class="font-bold text-base sm:text-lg">Thư viện Văn bản Quy phạm Pháp luật Đất đai & Hạ tầng</h3>
+        </div>
+        <button onclick="document.getElementById('legalDocsModal').classList.add('hidden')" class="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-blue-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto custom-scrollbar space-y-4" id="legalDocsList">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#00264d] text-slate-300 text-xs py-8 border-t-2 border-yellow-500/40 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div class="flex items-center gap-3">
+        <img src="emblem_round.png" alt="Quốc huy" class="w-10 h-10 object-cover rounded-full">
+        <div>
+          <div class="font-bold text-white uppercase text-sm">ỦY BAN NHÂN DÂN XÃ TÂN AN HỘI • PHÒNG HẠ TẦNG</div>
+          <p class="text-slate-400 text-[11px]">Địa chỉ: Tỉnh Lộ 8, Xã Tân An Hội, Huyện Củ Chi, TP. Hồ Chí Minh</p>
+        </div>
+      </div>
+      <div class="text-slate-400 text-[11px] text-center md:text-right">
+        <div>Cổng Dịch vụ công & Tra cứu Thủ tục Hành chính Đất đai - Xây dựng - Môi trường - Quy hoạch</div>
+        <div class="text-slate-500 mt-1">Đồng hành cùng người dân - Kiến tạo hạ tầng - Phát triển bền vững</div>
       </div>
     </div>
   </footer>
 
-  <!-- Load Data & Logic -->
+  <!-- Scripts -->
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>

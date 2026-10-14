@@ -16,3 +16,5 @@ generate_data_js.py
 # Large PDFs (> 50MB) to prevent GitHub push errors
 thu tuc hanh chinh moi/nghi dinh 101.pdf
 thu tuc hanh chinh moi/nghi dinh 102.pdf
+
+.vercel
